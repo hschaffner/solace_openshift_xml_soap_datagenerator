@@ -1,0 +1,14 @@
+/target/
+.classpath
+.project
+.settings
+.springBeans
+.gradle
+.DS_Store
+images/
+worker/build/
+aggregator/build/
+_site
+bin/
+*.iml
+libs/
