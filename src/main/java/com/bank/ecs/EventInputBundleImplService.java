@@ -1,8 +1,12 @@
 
 package com.bank.ecs;
 
+import java.io.File;
+import java.io.FilenameFilter;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
+
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 import javax.xml.ws.WebEndpoint;
@@ -33,6 +37,14 @@ public class EventInputBundleImplService
             //url = new URL("file:../XML_Schema/eventInputBundleImpl.wsdl");
         	String current = System.getProperty("user.dir");
         	System.out.println("==================== Current Directory: " + current);
+        	File file = new File(current);
+        	String[] directories = file.list(new FilenameFilter() {
+        	  @Override
+        	  public boolean accept(File current, String name) {
+        	    return new File(current, name).isDirectory();
+        	  }
+        	});
+        	System.out.println(Arrays.toString(directories));
         		url = new URL("file:XML_Schema/eventInputBundleImpl.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
