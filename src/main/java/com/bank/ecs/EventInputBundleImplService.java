@@ -31,7 +31,7 @@ public class EventInputBundleImplService
         WebServiceException e = null;
         try {
             //url = new URL("file:../XML_Schema/eventInputBundleImpl.wsdl");
-        	url = new URL("file:XML_Schema/eventInputBundleImpl.wsdl");
+        	url = new URL("file:./XML_Schema/eventInputBundleImpl.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

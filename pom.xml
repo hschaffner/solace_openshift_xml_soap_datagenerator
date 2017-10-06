@@ -22,7 +22,8 @@
 
 		<resources>
 			<resource>
-				<directory>${basedir}/src//main/resources/XML_Schema</directory>
+				<!--   <directory>${basedir}/src//main/resources/XML_Schema</directory> -->
+				<directory>${basedir}/XML_Schema</directory>
 				<targetPath>XML_Schema</targetPath>
 			</resource>
 		</resources>
