@@ -21,7 +21,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "eventInputBundleImplService", targetNamespace = "http://ECS.BANK.COM", wsdlLocation = "file:./source/XML_Schema/eventInputBundleImpl.wsdl")
+@WebServiceClient(name = "eventInputBundleImplService", targetNamespace = "http://ECS.BANK.COM", wsdlLocation = "file:/opt/app-root/src/source/XML_Schema/eventInputBundleImpl.wsdl")
 public class EventInputBundleImplService
     extends Service
 {
@@ -45,7 +45,7 @@ public class EventInputBundleImplService
         	  }
         	});
         	System.out.println(Arrays.toString(directories));
-        		url = new URL("file:./source/XML_Schema/eventInputBundleImpl.wsdl");
+        		url = new URL("file:/opt/app-root/src/source/XML_Schema/eventInputBundleImpl.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
