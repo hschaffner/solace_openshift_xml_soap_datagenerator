@@ -197,6 +197,12 @@ public class Bank_TestDataGeneratorOLBMobile_SOAP  {
 		logger.info("Sleep in millis between messages; " + 1000/Integer.valueOf(rate));
 		System.out.println("Sleep in millis between messages; " + 1000/Integer.valueOf(rate));
 		
+		try {
+			Thread.sleep(100000000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		while(true) {
 		
