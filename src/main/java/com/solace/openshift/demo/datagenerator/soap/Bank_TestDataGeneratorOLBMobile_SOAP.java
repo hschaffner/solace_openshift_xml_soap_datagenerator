@@ -182,6 +182,8 @@ public class Bank_TestDataGeneratorOLBMobile_SOAP  {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		
+		
 
 
 		JAXBContext jc_ecsData = null;
