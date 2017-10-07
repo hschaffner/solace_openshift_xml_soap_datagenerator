@@ -106,14 +106,7 @@ public class Bank_TestDataGeneratorOLBMobile_SOAP  {
 	 ******************/
 
 	public static void main(String[] args) {
-		
-		
-		try {
-			Thread.sleep(100000000);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+
 
 		// Get the required variables from shell, this is required for OpenShift Pod to pass variables from OpenShift Template
 		if(System.getenv("SOL_USER") != null) {
