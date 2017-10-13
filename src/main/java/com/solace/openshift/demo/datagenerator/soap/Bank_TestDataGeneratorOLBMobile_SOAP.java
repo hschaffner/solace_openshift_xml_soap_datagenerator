@@ -139,6 +139,12 @@ public class Bank_TestDataGeneratorOLBMobile_SOAP  {
 
 
 		sendSOAPMessage sendSOAPFactory = new sendSOAPMessage(user, password, url, host, port);
+		System.out.println(user);
+		System.out.println(password);
+		System.out.println(url);
+		System.out.println(host);
+		System.out.println(port);
+		
 
 		//appCode choices
 		appCode.put(1, "CK00");

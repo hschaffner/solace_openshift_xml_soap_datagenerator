@@ -3,8 +3,10 @@ package com.bank.ecs;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.util.Arrays;
 
 import javax.xml.namespace.QName;
@@ -20,90 +22,96 @@ import javax.xml.ws.WebServiceFeature;
  * JAX-WS RI 2.2.4-b01
  * Generated source version: 2.2
  * 
+ * Was modified to extract WSDL URL from Jar File
+ * 
  */
-@WebServiceClient(name = "eventInputBundleImplService", targetNamespace = "http://ECS.BANK.COM", wsdlLocation = "file:/opt/app-root/src/source/XML_Schema/eventInputBundleImpl.wsdl")
+//@WebServiceClient(name = "eventInputBundleImplService", targetNamespace = "http://ECS.BANK.COM", wsdlLocation = "file:/opt/app-root/src/source/XML_Schema/eventInputBundleImpl.wsdl")
+@WebServiceClient(name = "eventInputBundleImplService", targetNamespace = "http://ECS.BANK.COM", wsdlLocation = "file:XML_Schema/eventInputBundleImpl.wsdl")
 public class EventInputBundleImplService
-    extends Service
+extends Service
 {
 
-    private final static URL EVENTINPUTBUNDLEIMPLSERVICE_WSDL_LOCATION;
-    private final static WebServiceException EVENTINPUTBUNDLEIMPLSERVICE_EXCEPTION;
-    private final static QName EVENTINPUTBUNDLEIMPLSERVICE_QNAME = new QName("http://ECS.BANK.COM", "eventInputBundleImplService");
+	private final static URL EVENTINPUTBUNDLEIMPLSERVICE_WSDL_LOCATION;
+	private final static WebServiceException EVENTINPUTBUNDLEIMPLSERVICE_EXCEPTION;
+	private final static QName EVENTINPUTBUNDLEIMPLSERVICE_QNAME = new QName("http://ECS.BANK.COM", "eventInputBundleImplService");
 
-    static {
-        URL url = null;
-        WebServiceException e = null;
-        try {
-            //url = new URL("file:../XML_Schema/eventInputBundleImpl.wsdl");
-        	String current = System.getProperty("user.dir");
-        	System.out.println("==================== Current Directory: " + current);
-        	File file = new File(current);
-        	String[] directories = file.list(new FilenameFilter() {
-        	  @Override
-        	  public boolean accept(File current, String name) {
-        	    return new File(current, name).isDirectory();
-        	  }
-        	});
-        	System.out.println(Arrays.toString(directories));
-        		url = new URL("file:/opt/app-root/src/source/XML_Schema/eventInputBundleImpl.wsdl");
-        } catch (MalformedURLException ex) {
-            e = new WebServiceException(ex);
-        }
-        EVENTINPUTBUNDLEIMPLSERVICE_WSDL_LOCATION = url;
-        EVENTINPUTBUNDLEIMPLSERVICE_EXCEPTION = e;
-    }
+	static {
+		URL url = null;
+		WebServiceException e = null;
+		try {
+			String current = System.getProperty("user.dir");
+			System.out.println("==================== Current Directory: " + current);
+			File file = new File(current);
+			String[] directories = file.list(new FilenameFilter() {
+				@Override
+				public boolean accept(File current, String name) {
+					return new File(current, name).isDirectory();
+				}
+			});
+			System.out.println(Arrays.toString(directories));
 
-    public EventInputBundleImplService() {
-        super(__getWsdlLocation(), EVENTINPUTBUNDLEIMPLSERVICE_QNAME);
-    }
+			String path = EventInputBundleImplService.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+			String decodedPath = URLDecoder.decode(path, "UTF-8");;
+			url = new URL("file:/opt/app-root/src/source/XML_Schema/eventInputBundleImpl.wsdl");
+			//url = new URL("file:XML_Schema/eventInputBundleImpl.wsdl");
+		} catch (MalformedURLException | UnsupportedEncodingException ex) {
+			e = new WebServiceException(ex);
+		}
+		EVENTINPUTBUNDLEIMPLSERVICE_WSDL_LOCATION = url;
+		EVENTINPUTBUNDLEIMPLSERVICE_EXCEPTION = e;
+	}
 
-    public EventInputBundleImplService(WebServiceFeature... features) {
-        super(__getWsdlLocation(), EVENTINPUTBUNDLEIMPLSERVICE_QNAME, features);
-    }
+	public EventInputBundleImplService() {
+		super(__getWsdlLocation(), EVENTINPUTBUNDLEIMPLSERVICE_QNAME);
+	}
 
-    public EventInputBundleImplService(URL wsdlLocation) {
-        super(wsdlLocation, EVENTINPUTBUNDLEIMPLSERVICE_QNAME);
-    }
+	public EventInputBundleImplService(WebServiceFeature... features) {
+		super(__getWsdlLocation(), EVENTINPUTBUNDLEIMPLSERVICE_QNAME, features);
+	}
 
-    public EventInputBundleImplService(URL wsdlLocation, WebServiceFeature... features) {
-        super(wsdlLocation, EVENTINPUTBUNDLEIMPLSERVICE_QNAME, features);
-    }
+	public EventInputBundleImplService(URL wsdlLocation) {
+		super(wsdlLocation, EVENTINPUTBUNDLEIMPLSERVICE_QNAME);
+	}
 
-    public EventInputBundleImplService(URL wsdlLocation, QName serviceName) {
-        super(wsdlLocation, serviceName);
-    }
+	public EventInputBundleImplService(URL wsdlLocation, WebServiceFeature... features) {
+		super(wsdlLocation, EVENTINPUTBUNDLEIMPLSERVICE_QNAME, features);
+	}
 
-    public EventInputBundleImplService(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
-        super(wsdlLocation, serviceName, features);
-    }
+	public EventInputBundleImplService(URL wsdlLocation, QName serviceName) {
+		super(wsdlLocation, serviceName);
+	}
 
-    /**
-     * 
-     * @return
-     *     returns EventInputBundleImpl
-     */
-    @WebEndpoint(name = "eventInputBundleImpl")
-    public EventInputBundleImpl getEventInputBundleImpl() {
-        return super.getPort(new QName("http://ECS.BANK.COM", "eventInputBundleImpl"), EventInputBundleImpl.class);
-    }
+	public EventInputBundleImplService(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
+		super(wsdlLocation, serviceName, features);
+	}
 
-    /**
-     * 
-     * @param features
-     *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
-     * @return
-     *     returns EventInputBundleImpl
-     */
-    @WebEndpoint(name = "eventInputBundleImpl")
-    public EventInputBundleImpl getEventInputBundleImpl(WebServiceFeature... features) {
-        return super.getPort(new QName("http://ECS.BANK.COM", "eventInputBundleImpl"), EventInputBundleImpl.class, features);
-    }
+	/**
+	 * 
+	 * @return
+	 *     returns EventInputBundleImpl
+	 */
+	@WebEndpoint(name = "eventInputBundleImpl")
+	public EventInputBundleImpl getEventInputBundleImpl() {
+		return super.getPort(new QName("http://ECS.BANK.COM", "eventInputBundleImpl"), EventInputBundleImpl.class);
+	}
 
-    private static URL __getWsdlLocation() {
-        if (EVENTINPUTBUNDLEIMPLSERVICE_EXCEPTION!= null) {
-            throw EVENTINPUTBUNDLEIMPLSERVICE_EXCEPTION;
-        }
-        return EVENTINPUTBUNDLEIMPLSERVICE_WSDL_LOCATION;
-    }
+	/**
+	 * 
+	 * @param features
+	 *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+	 * @return
+	 *     returns EventInputBundleImpl
+	 */
+	@WebEndpoint(name = "eventInputBundleImpl")
+	public EventInputBundleImpl getEventInputBundleImpl(WebServiceFeature... features) {
+		return super.getPort(new QName("http://ECS.BANK.COM", "eventInputBundleImpl"), EventInputBundleImpl.class, features);
+	}
+
+	private static URL __getWsdlLocation() {
+		if (EVENTINPUTBUNDLEIMPLSERVICE_EXCEPTION!= null) {
+			throw EVENTINPUTBUNDLEIMPLSERVICE_EXCEPTION;
+		}
+		return EVENTINPUTBUNDLEIMPLSERVICE_WSDL_LOCATION;
+	}
 
 }

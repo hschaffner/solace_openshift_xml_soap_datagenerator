@@ -3,7 +3,7 @@ export SOL_USER=heinz1 #username to authenticate to Solace Message Broker
 export SOL_PASSWORD=heinz1 #password to authenticate to Solace Message Broker
 export SOL_URL=/TOPIC/bank/data/xml #Topic or Quse for SOAP message sent to Solace Message Broker
 export SOL_HOST=160.101.136.65 #host IP of Solace Message Broker
-export SOL_PORT=20010 #Portto conenct a REST session to Solace Message Broker
+export SOL_PORT=20010 #Port to connect a REST session to Solace Message Broker
 export SOL_RATE=1 #rate to send messages to Solace Message Broker
 
 
