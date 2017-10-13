@@ -51,8 +51,9 @@ extends Service
 			System.out.println(Arrays.toString(directories));
 
 			String path = EventInputBundleImplService.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-			String decodedPath = URLDecoder.decode(path, "UTF-8");;
-			url = new URL("file:/opt/app-root/src/source/XML_Schema/eventInputBundleImpl.wsdl");
+			String decodedPath = URLDecoder.decode(path, "UTF-8");
+			url = new URL("jar:" + decodedPath + "XML_Schema/eventInputBundleImpl.wsdl");
+			//url = new URL("file:/opt/app-root/src/source/XML_Schema/eventInputBundleImpl.wsdl");
 			//url = new URL("file:XML_Schema/eventInputBundleImpl.wsdl");
 		} catch (MalformedURLException | UnsupportedEncodingException ex) {
 			e = new WebServiceException(ex);
