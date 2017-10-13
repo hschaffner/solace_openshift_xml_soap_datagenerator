@@ -106,6 +106,8 @@ public class Bank_TestDataGeneratorOLBMobile_SOAP  {
 	 ******************/
 
 	public static void main(String[] args) {
+		
+		final Logger logger = LoggerFactory.getLogger(Bank_TestDataGeneratorOLBMobile_SOAP.class);
 
 
 		// Get the required variables from shell, this is required for OpenShift Pod to pass variables from OpenShift Template
@@ -337,7 +339,7 @@ public class Bank_TestDataGeneratorOLBMobile_SOAP  {
 		try {
 			datatypeFactory = DatatypeFactory.newInstance();
 		} catch (DatatypeConfigurationException e) {
-			// TODO Auto-generated catch block
+			logger.info(e.getLocalizedMessage());
 			e.printStackTrace();
 		}
 		XMLGregorianCalendar now = 
@@ -367,7 +369,7 @@ public class Bank_TestDataGeneratorOLBMobile_SOAP  {
 		try {
 			docBuilder = docBuilderFactory.newDocumentBuilder();
 		} catch (ParserConfigurationException e1) {
-			// TODO Auto-generated catch block
+			logger.info(e1.getLocalizedMessage());
 			e1.printStackTrace();
 		}
 		try {
@@ -403,7 +405,7 @@ public class Bank_TestDataGeneratorOLBMobile_SOAP  {
 			
 
 		} catch (SOAPException e) {
-			// TODO Auto-generated catch block
+			logger.info(e.getLocalizedMessage());
 			e.printStackTrace();
 		} 
 
@@ -411,7 +413,7 @@ public class Bank_TestDataGeneratorOLBMobile_SOAP  {
 		try {
 			soapMsg.writeTo(soapArrayOut);
 		} catch (SOAPException | IOException e) {
-			// TODO Auto-generated catch block
+			logger.info(e.getLocalizedMessage());
 			e.printStackTrace();
 		}
 		return soapArrayOut;
@@ -434,14 +436,12 @@ public class Bank_TestDataGeneratorOLBMobile_SOAP  {
 
 
 		//Create a input record
-		//int numRecords = randInt(1,5);
 		int numRecords = 1;
 		//System.out.println("Number of records: " + numRecords);
 		arrayEvents = new ArrayOfEvtInputLayout();
 		arrayEventsParty = new ArrayOfEvtPrtyInfo();
 		arrayEventsFeatures = new ArrayOfEvtActvyTypFeatureReltn();
 
-		//String acctCode = "AccountCode_" + randInt(1,100);
 		while(numRecords != 0){
 			guuid = GUUID();
 
@@ -564,9 +564,8 @@ public class Bank_TestDataGeneratorOLBMobile_SOAP  {
 
 
 		//Create a input record
-		//int numRecords = randInt(1,5);
 		int numRecords = 1;
-		//System.out.println("Number of records: " + numRecords);
+
 		arrayEvents = new ArrayOfEvtInputLayout();
 		arrayEventsParty = new ArrayOfEvtPrtyInfo();
 		arrayEventsFeatures = new ArrayOfEvtActvyTypFeatureReltn();
@@ -694,8 +693,7 @@ public class Bank_TestDataGeneratorOLBMobile_SOAP  {
 
 		//Create a input record
 		int numRecords = randInt(1,5);
-		//int numRecords = 1;
-		//System.out.println("Number of records: " + numRecords);
+
 		arrayEvents = new ArrayOfEvtInputLayout();
 		arrayEventsParty = new ArrayOfEvtPrtyInfo();
 		arrayEventsFeatures = new ArrayOfEvtActvyTypFeatureReltn();
@@ -703,7 +701,6 @@ public class Bank_TestDataGeneratorOLBMobile_SOAP  {
 		// THis is used to make sure the party and activity array is only updated once per record creation in the while loop
 		boolean iteration = true;
 
-		//String acctCode = "AccountCode_" + randInt(1,100);
 		while(numRecords != 0){
 			
 			guuid = GUUID();
@@ -841,7 +838,7 @@ public class Bank_TestDataGeneratorOLBMobile_SOAP  {
 
 
 		} catch (PropertyException e) {
-			// TODO Auto-generated catch block
+			logger.info(e.getLocalizedMessage());
 			e.printStackTrace();
 		}
 
@@ -855,7 +852,7 @@ public class Bank_TestDataGeneratorOLBMobile_SOAP  {
 		} 
 
 		catch (JAXBException e) {
-			// TODO Auto-generated catch block
+			logger.info(e.getLocalizedMessage());
 			e.printStackTrace();
 		} 
 
@@ -906,7 +903,7 @@ public class Bank_TestDataGeneratorOLBMobile_SOAP  {
 					EvtPrtyInfo dataRecordParty = reqLayout.createEvtPrtyInfo();
 					EvtActvyTypFeatureReltn dataRecordFeature = reqLayout.createEvtActvyTypFeatureReltn();
 
-					//JAXBElement<String> EvtId = reqLayout.createEvtInputLayoutEvtId(String.valueOf(counter++));
+	
 					JAXBElement<String> EvtId = reqLayout.createEvtInputLayoutEvtId(String.valueOf(guuid));
 					dataRecordTransMobile.setEvtId(EvtId);
 					dataRecordTransMobile.setEvtSysAppCd("3M00");
@@ -1029,7 +1026,7 @@ public class Bank_TestDataGeneratorOLBMobile_SOAP  {
 
 
 				} catch (PropertyException e) {
-					// TODO Auto-generated catch block
+					logger.info(e.getLocalizedMessage());
 					e.printStackTrace();
 				}
 
